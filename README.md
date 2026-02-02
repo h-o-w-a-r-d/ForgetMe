@@ -1,80 +1,82 @@
-# 🌱 ForgetMeNot - 網站遺忘助手
+# 🌱 ForgetMeNot - Website Oblivion Assistant
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-blue)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-googlechrome)
 
-**ForgetMeNot** 是一個注重隱私的 Chrome 擴充功能。它的核心功能非常簡單且強大：**當您關閉某個網站的最後一個分頁時，自動清除該網站的所有瀏覽數據**（Cookies, Cache, LocalStorage 等）。
+**ForgetMeNot** is a privacy-focused Chrome extension. Its core function is simple yet powerful: **Automatically clear all browsing data (Cookies, Cache, LocalStorage, etc.) for a website when you close its last remaining tab.**
 
-不再讓不需要的網站追蹤您的數位足跡，保持瀏覽器的輕量與隱私。
+Prevent unwanted websites from tracking your digital footprint and keep your browser lightweight and private.
 
-## ✨ 主要功能
+---
 
-*   **自動清除數據**：監測分頁狀態，僅在該網域的「最後一個分頁」關閉時執行清除，避免影響正在瀏覽中的頁面。
-*   **雙重模式**：
-    *   **⛔ 黑名單模式 (預設)**：只有列在名單上的網站，關閉時才會被清除數據。
-    *   **🛡️ 白名單模式**：列在名單上的網站會被「保留」，其餘所有未列出的網站在關閉時都會被清除。
-*   **強大的規則系統**：支援 **正則表達式 (Regex)**，讓您可以靈活地匹配網域（例如匹配所有子網域）。
-*   **現代化架構**：基於 Chrome Manifest V3 開發，使用 Service Worker，效能更佳且更安全。
-*   **美觀的介面**：簡潔的設定頁面與粉色系的成功提示通知。
+## ✨ Key Features
 
-## 🚀 安裝說明 (開發者模式)
+* **Auto-Cleanup**: Monitors tab status and triggers cleanup only when the "last tab" of a specific domain is closed, ensuring no interference with your active browsing sessions.
+* **Dual Modes**:
+    * **⛔ Blacklist Mode (Default)**: Only websites listed will have their data cleared upon closing.
+    * **🛡️ Whitelist Mode**: Websites listed are "kept/preserved," while all other unlisted websites are cleared when their tabs are closed.
+* **Powerful Rule System**: Supports **Regular Expressions (Regex)**, allowing you to flexibly match domains (e.g., matching all subdomains).
+* **Modern Architecture**: Built on Chrome Manifest V3 using Service Workers for better performance and enhanced security.
+* **Beautiful Interface**: Clean settings page with aesthetic pink-themed success notifications.
 
-由於本擴充功能尚未上架 Chrome 線上應用程式商店，您需要透過「載入未封裝項目」的方式安裝：
+## 🚀 Installation (Developer Mode)
 
-1.  **下載代碼**：將本專案下載或是 Clone 到您的電腦中。
-2.  **開啟擴充功能管理頁面**：
-    *   在 Chrome 瀏覽器網址列輸入 `chrome://extensions/` 並按下 Enter。
-3.  **開啟開發人員模式**：
-    *   點擊頁面右上角的 **「開發人員模式 (Developer mode)」** 開關使其變為藍色。
-4.  **載入擴充功能**：
-    *   點擊左上角的 **「載入未封裝項目 (Load unpacked)」** 按鈕。
-    *   選擇包含 `manifest.json` 檔案的 `ForgetMeNot` 資料夾。
-5.  **完成！** 您現在可以在擴充功能列看到 ForgetMeNot 的圖示。
+Since this extension is not yet published on the Chrome Web Store, you can install it via "Load unpacked":
 
-## 📖 使用指南
+1.  **Download Code**: Download or clone this repository to your local machine.
+2.  **Open Extensions Management**:
+    * Enter `chrome://extensions/` in the Chrome address bar and press Enter.
+3.  **Enable Developer Mode**:
+    * Toggle the **"Developer mode"** switch in the top right corner to the ON position (blue).
+4.  **Load Extension**:
+    * Click the **"Load unpacked"** button in the top left.
+    * Select the `ForgetMeNot` folder containing the `manifest.json` file.
+5.  **Done!** You can now find the ForgetMeNot icon in your extension bar.
 
-### 設定頁面
-點擊擴充功能圖示，選擇「選項 (Options)」進入設定頁面。
+## 📖 Usage Guide
 
-### 正則表達式 (Regex) 範例
-在輸入框中，每一行代表一條規則。
+### Settings Page
+Click the extension icon and select "Options" to enter the configuration page.
 
-*   **匹配特定網域** (記得將 `.` 轉義為 `\.`)：
+### Regex Examples
+In the input field, each line represents one rule.
+
+* **Match a specific domain** (Remember to escape `.` as `\.`):
     ```text
     example\.com
     ```
-*   **匹配網域及其所有子網域** (例如 `mail.google.com`, `drive.google.com`)：
+* **Match a domain and all its subdomains** (e.g., `mail.google.com`, `drive.google.com`):
     ```text
     .*\.google\.com
     ```
-*   **匹配包含特定關鍵字的網域**：
+* **Match domains containing a specific keyword**:
     ```text
     .*facebook.*
     ```
 
-### 模式說明
-*   **黑名單**：適合只想針對特定幾個網站（如新聞網站、社群媒體）進行清理的使用者。
-*   **白名單**：適合極致隱私主義者。您可以將常用的網站（如 Email、公司系統）加入白名單，其他隨意瀏覽的網站關閉後都會自動無痕。
+### Mode Descriptions
+* **Blacklist**: Ideal for users who only want to target specific websites (e.g., news sites, social media) for cleanup.
+* **Whitelist**: Designed for privacy enthusiasts. You can whitelist essential sites (e.g., Email, internal company systems), and data for all other randomly browsed sites will be cleared automatically.
 
-## 🔒 隱私與權限說明
+## 🔒 Privacy & Permissions
 
-本擴充功能需要以下權限才能運作，所有數據處理皆在您的**本地端**完成，不會上傳任何資料。
+This extension requires the following permissions to function. All data processing is performed **locally** on your device; no data is uploaded.
 
-| 權限 | 原因 |
+| Permission | Reason |
 | :--- | :--- |
-| `browsingData` | 用於執行清除 Cookies、Cache、LocalStorage 等操作。 |
-| `tabs` | 用於監聽分頁的開啟與關閉，並判斷是否為最後一個分頁。 |
-| `storage` | 用於儲存您的黑/白名單設定。 |
-| `host_permissions` | 需要 `<all_urls>` 以便 Background Script 能讀取剛關閉分頁的 URL 來源，進行網域比對。 |
+| `browsingData` | Used to execute clearing of Cookies, Cache, LocalStorage, etc. |
+| `tabs` | Used to monitor tab opening/closing and determine if a tab is the last one. |
+| `storage` | Used to save your Blacklist/Whitelist configurations. |
+| `host_permissions` | Requires `<all_urls>` so the background script can read the source URL of closed tabs for domain matching. |
 
-## 🛠️ 專案結構
+## 🛠️ Project Structure
 
 ```text
 ForgetMeNot/
-├── manifest.json   # 擴充功能設定檔
-├── background.js   # 核心邏輯 (Service Worker)
-├── options.html    # 設定頁面 HTML
-├── options.js      # 設定頁面邏輯
-├── styles.css      # 設定頁面樣式
-└── icons/          # 圖示資料夾
+├── manifest.json    # Extension manifest file
+├── background.js    # Core logic (Service Worker)
+├── options.html     # Settings page HTML
+├── options.js       # Settings page logic
+├── styles.css       # Settings page styles
+└── icons/           # Icon folder
