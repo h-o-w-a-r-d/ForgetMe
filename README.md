@@ -4,6 +4,8 @@
 ![Manifest](https://img.shields.io/badge/Manifest-V3-blue)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-googlechrome)
 
+[中文版](README_zh.md)
+
 **ForgetMeNot** is a privacy-focused Chrome extension. Its core function is simple yet powerful: **Automatically clear all browsing data (Cookies, Cache, LocalStorage, etc.) for a website when you close its last remaining tab.**
 
 Prevent unwanted websites from tracking your digital footprint and keep your browser lightweight and private.
